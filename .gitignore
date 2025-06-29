@@ -1,0 +1,9 @@
+# VS Code settings
+.vscode/
+# Node-related (if you ever use npm)
+node_modules/
+# Chrome extension junk
+*.log
+.DS_Store
+dist/
+build/
