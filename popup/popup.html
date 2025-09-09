@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="../styles/style.css"></head>
-<body>
-  <h2>Productivity Tracker</h2>
-  <div id="report"></div>
-  <a href="../dashboard/dashboard.html" target="_blank">Open Dashboard</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeLens - Productivity Tracker</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body class="popup-body">
+  <div class="popup-container">
+    <div class="header">
+      <div class="logo">
+        <span class="logo-icon">⏱️</span>
+        <h2>TimeLens</h2>
+      </div>
+      <div class="productivity-badge" id="productivityBadge">
+        <span id="productivityScore">0%</span>
+      </div>
+    </div>
+    
+    <div class="quick-stats">
+      <div class="stat-card">
+        <div class="stat-value" id="todayTotal">0m</div>
+        <div class="stat-label">Today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="productiveTime">0m</div>
+        <div class="stat-label">Productive</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Top Sites Today</h3>
+      <div id="topSites" class="site-list">
+        <div class="no-data">Start browsing to see data</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" id="openDashboard">
+        <span>📊</span> Full Dashboard
+      </button>
+      <button class="btn-secondary" id="pauseTracking">
+        <span id="pauseIcon">⏸️</span> <span id="pauseText">Pause</span>
+      </button>
+    </div>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>

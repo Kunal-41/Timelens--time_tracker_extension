@@ -3,16 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Productivity Dashboard</title>
-  <link rel="stylesheet" href="../styles/style.css" />
+  <title>TimeLens - Productivity Dashboard</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Productivity Report</h1>
-    <div id="report">
-      <p>Loading data...</p>
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">⏱️</span>
+          <h1>TimeLens Dashboard</h1>
+        </div>
+        <div class="header-actions">
+          <button class="btn-secondary" id="exportBtn">📊 Export Data</button>
+          <button class="btn-danger" id="clearBtn">🗑️ Clear Data</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-content">
+      <div class="stats-grid">
+        <div class="stat-card large">
+          <div class="stat-icon">📈</div>
+          <div class="stat-content">
+            <div class="stat-value" id="totalTime">0h 0m</div>
+            <div class="stat-label">Total Time Today</div>
+          </div>
+        </div>
+        <div class="stat-card large productive">
+          <div class="stat-icon">✅</div>
+          <div class="stat-content">
+            <div class="stat-value" id="productiveTime">0h 0m</div>
+            <div class="stat-label">Productive Time</div>
+          </div>
+        </div>
+        <div class="stat-card large">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-content">
+            <div class="stat-value" id="productivityScore">0%</div>
+            <div class="stat-label">Productivity Score</div>
+          </div>
+        </div>
+        <div class="stat-card large">
+          <div class="stat-icon">🌐</div>
+          <div class="stat-content">
+            <div class="stat-value" id="sitesVisited">0</div>
+            <div class="stat-label">Sites Visited</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-container">
+          <h3>Time Distribution</h3>
+          <canvas id="timeChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3>Productivity Breakdown</h3>
+          <canvas id="productivityChart"></canvas>
+        </div>
+      </div>
+
+      <div class="detailed-report">
+        <div class="section-header">
+          <h3>Detailed Report</h3>
+          <div class="filters">
+            <select id="categoryFilter">
+              <option value="all">All Sites</option>
+              <option value="productive">Productive</option>
+              <option value="unproductive">Unproductive</option>
+              <option value="neutral">Neutral</option>
+            </select>
+          </div>
+        </div>
+        <div id="detailedReport" class="report-list">
+          <div class="no-data">No data available yet. Start browsing to see your activity!</div>
+        </div>
+      </div>
     </div>
-    <button id="clearBtn">Clear Data</button>
   </div>
   <script src="dashboard.js"></script>
 </body>
